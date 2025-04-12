@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Estrutura HTML5</title>
+    <meta name="description" content="Uma página de exemplo para demonstrar a estrutura básica do HTML5">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body{
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg,#4e3a15 ,#988f2a );
+        }
+        img.h500{
+            height: auto;
+            width: 500px;
+
+        }
+
+        h1{
+            color: #fe5f00;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        p{
+            color: #cccc;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        figcaption{
+            color: white;
+            font-style: italic;
+            font-size: 14px;
+        }
+        .caixa{
+            background-color: white;
+            border: 3px dashed #007bff;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        
+    </style>
+
+
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Aula 2 - Imagens - Parte 01</h1>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section>
+            <h2>Seção 1: Introdução</h2>
+            <p>Esta é a primeira seção da página. <br>
+               Aqui você pode adicionar informações <br>
+               introdutórias.</p>
+
+            <div class="caixa">
+                Conteúdo Formatado
+            </div>
+            
+        </section>
+       
+        <figure>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="h500">
+            <figcaption>
+                Paisagem - Imagem Original
+            </figcaption>
+
+        </figure>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="footer" class="container text-center">
+        <p class="text-muted"><i class="far fa-copyright icon"></i> 2025 - Todos os direitos reservados.</p>
+    </footer>
+
+    </body>
+</html>

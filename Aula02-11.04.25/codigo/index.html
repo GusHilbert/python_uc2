@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Estrutura HTML5</title>
+    <meta name="description" content="Uma página de exemplo para demonstrar a estrutura básica do HTML5">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        img.w800 {
+            width: 800px;
+        }
+        img.h800 {
+            height: 800px;
+
+        }
+        img.w300{
+            width: 200px;
+            height: auto;
+            clip-path: circle(42%);
+        }
+        img.lmax {
+            max-width: 100%;
+            height: auto;
+        }
+
+        figure{
+            margin-left: 0px;
+            margin-top: 20px;
+            margin-right: 0px;
+            border: 5px solid purple;
+        }
+        
+    </style>
+
+
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Aula 2 - Imagens - Parte 01</h1>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section>
+            <h2>Seção 1: Introdução</h2>
+            <p>Esta é a primeira seção da página. 
+               Aqui você pode adicionar informações
+               introdutórias.</p>
+            <div class="caixa">
+                Conteúdo Formatado
+            </div>
+            
+        </section>
+        <section id="section1">
+            <h1>Imagem Original</h1>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" width="800px">
+        </section>       
+        <section id="section2">
+            <h1>Imagem com 300 px de largura</h1>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="w800">
+        </section>
+        <figure>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="w800">
+            <figcaption>
+                Paisagem - Imagem Original
+            </figcaption>
+
+        </figure>
+        <figure>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="h800">
+            <figcaption>
+                Paisagem - Imagem Original
+            </figcaption>
+
+        </figure>
+        <figure>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="w300">
+            <figcaption>
+                Paisagem - Imagem Original
+            </figcaption>
+
+        </figure>
+
+        <figure>
+            <img src="img/paisagem-original.jpg" alt="Por do Sol" class="lmax">
+            <figcaption>
+                Paisagem - Imagem Original
+            </figcaption>
+
+        </figure>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="footer" class="container text-center">
+        <p class="text-muted"><i class="far fa-copyright icon"></i> 2025 - Todos os direitos reservados.</p>
+    </footer>
+
+    </body>
+</html>
