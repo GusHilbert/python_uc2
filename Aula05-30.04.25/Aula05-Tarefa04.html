@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo de Formulários</title>
+    <meta
+      name="description"
+      content="Uma página de exemplo para demonstrar a estrutura básica de formulários"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos personalizados (opcional) -->
+    <style>
+      body {
+        padding: 20px;
+      }
+      header {
+        margin-bottom: 20px;
+      }
+      footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        background-color: #f8f9fa;
+      }
+      .icon {
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-primary">
+          <i class="fa-solid fa-face-smile icon"></i>Teste de formulários - Pt4
+        </h1>
+        <nav>
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="#section1" class="nav-link"
+                ><i class="fas fa-info-circle icon"></i>Seção 1</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#section2" class="nav-link"
+                ><i class="fas fa-book icon"></i>Seção 2</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#footer" class="nav-link"
+                ><i class="fas fa-arrow-down icon"></i>Rodapé</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <section id="section1" class="mb-5">
+        <h2 class="text-success">
+          <i class="fas fa-lightbulb icon"></i>Seção 4: Formulários
+        </h2>
+        <p class="lead">
+          Esta é a quarta seção da página. Aqui você pode adicionar formulários
+          introdutórios.
+        </p>
+      </section>
+
+      <form action="Aula05-Tarefa05.html" method="POST" target="_blank">
+        <div class="mb-3">
+          <div class="row">
+            <div class="col">
+              <label for="login" class="form-label">Login: </label>
+              <input
+                type="text"
+                class="form-control"
+                name="login"
+                id="login"
+                required
+              />
+            </div>
+            <div class="col">
+              <label for="password" class="form-label">Senha: </label>
+              <input
+                type="password"
+                class="form-control"
+                name="senha"
+                id="senha"
+                required
+                pattern=".*"
+              />
+            </div>
+            <div class="col">
+              <label for="senha2" class="form-label">Repita a sua Senha: </label>
+              <input
+                type="password"
+                class="form-control"
+                name="senha2"
+                id="senha2"
+                required
+                pattern=".*"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="nome" class="form-label">Nome: </label>
+              <input
+                type="text"
+                class="form-control"
+                name="nome"
+                id="name"
+                required
+              />
+            </div>
+            <div class="col">
+              <label for="cpf" class="form-label">CPF: </label>
+              <input
+                type="number"
+                class="form-control"
+                name="cpf"
+                id="cpf"
+                required
+                pattern="[0-9]{11}"
+                minlength="11"
+                maxlength="11"
+              />
+            </div>
+            <div class="col">
+              <label for="email" class="form-label">E-mail: </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              />
+            </div>
+            <div class="col">
+              <label for="telefone" class="form-label">Telefone: </label>
+              <input
+                type="tel"
+                class="form-control"
+                name="telefone"
+                id="telefone"
+                required
+                pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"
+              />
+            </div>
+          </div>
+          <br></br>
+          <div class="row">
+            <h6>Endereço: </h6>
+            <div class="col">
+                <label for="rua" class="form-label">Rua: </label>
+              <input
+                type="rua"
+                class="form-control"
+                name="rua"
+                id="rua"
+                required
+
+              />
+            </div>
+
+            <div class="col">
+                <label for="bairro" class="form-label">Bairro: </label>
+              <input
+                type="bairro"
+                class="form-control"
+                name="bairro"
+                id="bairro"
+                required
+
+              />
+            </div>
+            <div class="col">
+                <label for="cidade" class="form-label">Cidade: </label>
+              <input
+                type="cidade"
+                class="form-control"
+                name="cidade"
+                id="cidade"
+                required
+
+              />
+            </div></div>
+<div class="row">
+            <div class="col">
+                <label for="estado" class="form-label">Estado: </label>
+              <input
+                type="estado"
+                class="form-control"
+                name="estado"
+                id="estado"
+                required
+
+              />
+            </div>
+            <div class="col">   
+                <label for="cep" class="form-label">CEP: </label>
+              <input
+                type="cep"
+                class="form-control"
+                name="cep"
+                id="cep"
+                pattern="[0-9]{5}-[0-9]{3}"
+                required
+
+              />
+            </div>
+            <div class="col">
+                <label for="numEndereco" class="form-label">Número: </label>
+              <input
+                type="number"
+                class="form-control"
+                name="numEndereco"
+                id="numEndereco"
+                pattern="[0-9]"
+              />
+            </div>
+            </div>
+
+
+
+          </div>
+
+          <!-- <div class="mb-3">
+        <label for="email" class="form-label">E-mail: </label>
+        <input type="email" class="form-control" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div> -->
+          <!-- </div>
+        <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone: </label>
+        <input type="tel"  class="form-control" name="telefone" id="telefone" required pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
+        </div> -->
+
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="footer" class="container text-center">
+      <p class="text-muted">
+        <i class="far fa-copyright icon"></i> 2023 - Todos os direitos
+        reservados.
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
