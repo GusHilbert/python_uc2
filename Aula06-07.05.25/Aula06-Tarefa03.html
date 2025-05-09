@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo de Estrutura HTML5</title>
+    <meta
+      name="description"
+      content="Uma página de exemplo para demonstrar a estrutura básica do HTML5 com Bootstrap e Font Awesome."
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Estilos personalizados (opcional) -->
+    <style>
+      body {
+        padding: 20px;
+      }
+      header {
+        margin-bottom: 20px;
+      }
+      footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        background-color: #f8f9fa;
+      }
+      .icon {
+        margin-right: 8px;
+      }
+    </style>
+
+    <link rel="stylesheet" href="css/estilo-form.css" />
+
+    <!-- JavaScript-->
+
+    <script>
+      function capturarInput() {
+        const valor = document.getElementById("nome").value;
+        alert("Valor digitado: " + valor + " | Tipo: " + typeof valor);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-dark"><i class="fas fa-home icon"></i>Formulários</h1>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <form id="form-cadastro" class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="mb-3">
+            <label for="estado" class="form-label">Escolha um Estado:</label>
+            <select id="estado" name="estado" class="form-select" required>
+              <option value="" disabled selected>Selecione um Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Gênero:</label>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="masculino"
+                name="genero"
+                value="M"
+                checked
+              />
+              <label class="form-check-label" for="masculino">Masculino</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="feminino"
+                name="genero"
+                value="F"
+              />
+              <label class="form-check-label" for="feminino">Feminino</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="n_binario"
+                name="genero"
+                value="n_binario"
+              />
+              <label class="form-check-label" for="n_binario"
+                >Não Binário</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="n_informado"
+                name="genero"
+                value="n_informado"
+              />
+              <label class="form-check-label" for="n_informado"
+                >Não Informado</label
+              >
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <fieldset>
+              <legend class="col-form-label pt-0">
+                Escolha seus Interesses:
+              </legend>
+              <div
+                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2"
+              >
+                <!-- Lista de interesses -->
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="cinema"
+                    name="interesses[]"
+                    value="cinema"
+                  />
+                  <label class="form-check-label" for="cinema">Cinema</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="leitura"
+                    name="interesses[]"
+                    value="leitura"
+                  />
+                  <label class="form-check-label" for="leitura">Leitura</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="tecnologia"
+                    name="interesses[]"
+                    value="tecnologia"
+                  />
+                  <label class="form-check-label" for="tecnologia"
+                    >Tecnologia</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="viagens"
+                    name="interesses[]"
+                    value="viagens"
+                  />
+                  <label class="form-check-label" for="viagens">Viagens</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="gastronomia"
+                    name="interesses[]"
+                    value="gastronomia"
+                  />
+                  <label class="form-check-label" for="gastronomia"
+                    >Gastronomia</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="arte"
+                    name="interesses[]"
+                    value="arte"
+                  />
+                  <label class="form-check-label" for="arte">Arte</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="moda"
+                    name="interesses[]"
+                    value="moda"
+                  />
+                  <label class="form-check-label" for="moda">Moda</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="jogos"
+                    name="interesses[]"
+                    value="jogos"
+                  />
+                  <label class="form-check-label" for="jogos">Jogos</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="fotografia"
+                    name="interesses[]"
+                    value="fotografia"
+                  />
+                  <label class="form-check-label" for="fotografia"
+                    >Fotografia</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="natureza"
+                    name="interesses[]"
+                    value="natureza"
+                  />
+                  <label class="form-check-label" for="natureza"
+                    >Natureza</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="animais"
+                    name="interesses[]"
+                    value="animais"
+                  />
+                  <label class="form-check-label" for="animais">Animais</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="ciencia"
+                    name="interesses[]"
+                    value="ciencia"
+                  />
+                  <label class="form-check-label" for="ciencia">Ciência</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="historia"
+                    name="interesses[]"
+                    value="historia"
+                  />
+                  <label class="form-check-label" for="historia"
+                    >História</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="negocios"
+                    name="interesses[]"
+                    value="negocios"
+                  />
+                  <label class="form-check-label" for="negocios"
+                    >Negócios</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="educacao"
+                    name="interesses[]"
+                    value="educacao"
+                  />
+                  <label class="form-check-label" for="educacao"
+                    >Educação</label
+                  >
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="mb-3">
+            <label for="cor-favorita" class="form-label">Cor favorita:</label>
+            <input
+              type="color"
+              class="form-control form-control-color"
+              id="cor-favorita"
+              name="cor_favorita"
+              value="#ff0000"
+              title="Escolha sua cor favorita"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="foto" class="form-label">Envie sua foto:</label>
+            <input
+              type="file"
+              class="form-control"
+              id="foto"
+              name="foto"
+              accept="image/*"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="mensagem" class="form-label">Mensagem:</label>
+            <textarea
+              class="form-control"
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              placeholder="Digite sua mensagem aqui..."
+            ></textarea>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="footer" class="container text-center">
+      <p class="text-muted">
+        <i class="far fa-copyright icon"></i> 2025 - Todos os direitos
+        reservados.
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
