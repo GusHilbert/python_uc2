@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gato Maromba</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid white;
+            background-color: black;
+        }
+        #score {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Pontuação: 0</div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const LARGURA = canvas.width;
+        const ALTURA = canvas.height;
+
+        let gatoX = LARGURA / 2;
+        let gatoY = ALTURA / 2;
+        let velocidadeX = 20;
+        let velocidadeY = 0;
+
+        let haltereX = Math.floor(Math.random() * (LARGURA / 20)) * 20;
+        let haltereY = Math.floor(Math.random() * (ALTURA / 20)) * 20;
+
+        let pontuacao = 0;
+        let tamanhoGato = 40;
+        let estadoAtual = 0;
+
+        const imagensGato = [
+            { src: "Imagem/gatoFraco.jpg", tamanhoInicial: 40 }, // Gato normal
+            { src: "Imagem/gatoForte.jpg", tamanhoInicial: 60 }, // Gato forte
+            { src: "Imagem/gatoMuitoForte.jpg", tamanhoInicial: 80 }, // Gato muito forte
+        ];
+
+        const imagens = imagensGato.map(img => {
+            const imagem = new Image();
+            imagem.src = img.src;
+            return imagem;
+        });
+
+        const imagemHaltere = new Image();
+        imagemHaltere.src = "Imagem/halter.jpg"; // Caminho da imagem do haltere
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp" && velocidadeY === 0) {
+                velocidadeX = 0;
+                velocidadeY = -20;
+            } else if (e.key === "ArrowDown" && velocidadeY === 0) {
+                velocidadeX = 0;
+                velocidadeY = 20;
+            } else if (e.key === "ArrowLeft" && velocidadeX === 0) {
+                velocidadeX = -20;
+                velocidadeY = 0;
+            } else if (e.key === "ArrowRight" && velocidadeX === 0) {
+                velocidadeX = 20;
+                velocidadeY = 0;
+            }
+        });
+
+        function atualizarJogo() {
+            gatoX += velocidadeX;
+            gatoY += velocidadeY;
+
+            // Teletransporte pelas bordas
+            if (gatoX >= LARGURA) gatoX = 0;
+            if (gatoX < 0) gatoX = LARGURA - 20;
+            if (gatoY >= ALTURA) gatoY = 0;
+            if (gatoY < 0) gatoY = ALTURA - 20;
+
+            // Verificar se o gato pegou o haltere
+            if (
+                gatoX < haltereX + 20 &&
+                gatoX + tamanhoGato > haltereX &&
+                gatoY < haltereY + 20 &&
+                gatoY + tamanhoGato > haltereY
+            ) {
+                pontuacao++;
+                tamanhoGato += 2; // O gato cresce
+                document.getElementById("score").textContent = `Pontuação: ${pontuacao}`;
+
+                // Atualizar posição do haltere
+                haltereX = Math.floor(Math.random() * (LARGURA / 20)) * 20;
+                haltereY = Math.floor(Math.random() * (ALTURA / 20)) * 20;
+
+                // Mudar estado se necessário
+                if (pontuacao % 20 === 0 && estadoAtual < imagensGato.length - 1) {
+                    estadoAtual++;
+                    tamanhoGato = imagensGato[estadoAtual].tamanhoInicial;
+                }
+            }
+
+            desenharJogo();
+            setTimeout(atualizarJogo, 100);
+        }
+
+        function desenharJogo() {
+            ctx.clearRect(0, 0, LARGURA, ALTURA);
+
+            // Desenhar o gato
+            const img = imagens[estadoAtual];
+            ctx.drawImage(img, gatoX, gatoY, tamanhoGato, tamanhoGato);
+
+            // Desenhar o haltere
+            ctx.drawImage(imagemHaltere, haltereX, haltereY, 20, 20);
+        }
+
+        atualizarJogo();
+    </script>
+</body>
+</html>

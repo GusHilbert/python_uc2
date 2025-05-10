@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gato Maromba na Academia</title>
+  <style>
+    body { margin: 0; background: #222; color: white; font-family: sans-serif; text-align: center; }
+    canvas { background: url('https://pixabay.com/get/54e6d44a4f57a514f1dc846096293e7c1d22dfe0545074417d2e7c9c9f4ac1_340.jpg') no-repeat center center; background-size: cover; display: block; margin: 20px auto; }
+  </style>
+</head>
+<body>
+  <h1>🐱 Gato Maromba na Academia</h1>
+  <p>Use as setas para mover. Pegue os pesos para crescer!</p>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const gridSize = 20;
+    const tileCount = canvas.width / gridSize;
+
+    let cat = { x: 10, y: 10, size: 1, speed: 1, color: 'gray' };
+    let velocity = { x: 0, y: 0 };
+    let peso = spawnPeso();
+    let gameOver = false;
+
+    function drawCat() {
+      ctx.fillStyle = cat.color;
+      ctx.fillRect(cat.x * gridSize, cat.y * gridSize, cat.size * gridSize, cat.size * gridSize);
+    }
+
+    function drawPeso() {
+      ctx.fillStyle = 'black';
+      ctx.fillRect(peso.x * gridSize, peso.y * gridSize, gridSize, gridSize);
+    }
+
+    function spawnPeso() {
+      let newPeso;
+      do {
+        newPeso = {
+          x: Math.floor(Math.random() * tileCount),
+          y: Math.floor(Math.random() * tileCount)
+        };
+      } while (cat.x === newPeso.x && cat.y === newPeso.y);
+      return newPeso;
+    }
+
+    function gameLoop() {
+      if (gameOver) {
+        ctx.fillStyle = 'white';
+        ctx.font = '20px Arial';
+        ctx.fillText('🏆 Gato Maromba Venceu!', 100, canvas.height / 2);
+        return;
+      }
+
+      cat.x += velocity.x;
+      cat.y += velocity.y;
+
+      if (cat.x < 0 || cat.y < 0 || cat.x >= tileCount || cat.y >= tileCount) {
+        gameOver = true;
+        return;
+      }
+
+      if (cat.x === peso.x && cat.y === peso.y) {
+        cat.size++;
+        peso = spawnPeso();
+      }
+
+      if (cat.size * gridSize >= canvas.width || cat.size * gridSize >= canvas.height) {
+        gameOver = true;
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPeso();
+      drawCat();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp' && velocity.y === 0) velocity = { x: 0, y: -cat.speed };
+      if (e.key === 'ArrowDown' && velocity.y === 0) velocity = { x: 0, y: cat.speed };
+      if (e.key === 'ArrowLeft' && velocity.x === 0) velocity = { x: -cat.speed, y: 0 };
+      if (e.key === 'ArrowRight' && velocity.x === 0) velocity = { x: cat.speed, y: 0 };
+    });
+
+    setInterval(gameLoop, 150);
+  </script>
+</body>
+</html>
