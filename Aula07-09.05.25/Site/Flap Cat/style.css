@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #999999; /* fundo da página (cinza) */
+  }
+  
+  canvas {
+    border: 2px solid black;
+    background: #000000; /* fundo do jogo (canvas) preto */
+  }
+  

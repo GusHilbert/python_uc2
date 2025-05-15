@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gato Maromba</title>
+    <title>Caaaaaaaaat</title>
     <style>
         body {
             margin: 0;
@@ -48,9 +48,9 @@
         let estadoAtual = 0;
 
         const imagensGato = [
-            { src: "Imagem/gatoFraco.jpg", tamanhoInicial: 40 }, // Gato normal
-            { src: "Imagem/gatoForte.jpg", tamanhoInicial: 60 }, // Gato forte
-            { src: "Imagem/gatoMuitoForte.jpg", tamanhoInicial: 80 }, // Gato muito forte
+            { src: "Imagem/gatoFraco1.png", tamanhoInicial: 40 }, 
+            { src: "Imagem/gatoForte1.png", tamanhoInicial: 60 }, 
+            { src: "Imagem/gatoMuitoForte1.png", tamanhoInicial: 80 }, 
         ];
 
         const imagens = imagensGato.map(img => {
@@ -60,7 +60,7 @@
         });
 
         const imagemHaltere = new Image();
-        imagemHaltere.src = "Imagem/halter.jpg"; // Caminho da imagem do haltere
+        imagemHaltere.src = "Imagem/halter1.png"; 
 
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowUp" && velocidadeY === 0) {
@@ -82,13 +82,13 @@
             gatoX += velocidadeX;
             gatoY += velocidadeY;
 
-            // Teletransporte pelas bordas
+           
             if (gatoX >= LARGURA) gatoX = 0;
             if (gatoX < 0) gatoX = LARGURA - 20;
             if (gatoY >= ALTURA) gatoY = 0;
             if (gatoY < 0) gatoY = ALTURA - 20;
 
-            // Verificar se o gato pegou o haltere
+            
             if (
                 gatoX < haltereX + 20 &&
                 gatoX + tamanhoGato > haltereX &&
@@ -96,14 +96,14 @@
                 gatoY + tamanhoGato > haltereY
             ) {
                 pontuacao++;
-                tamanhoGato += 2; // O gato cresce
+                tamanhoGato += 2; 
                 document.getElementById("score").textContent = `Pontuação: ${pontuacao}`;
 
-                // Atualizar posição do haltere
+                
                 haltereX = Math.floor(Math.random() * (LARGURA / 20)) * 20;
                 haltereY = Math.floor(Math.random() * (ALTURA / 20)) * 20;
 
-                // Mudar estado se necessário
+                
                 if (pontuacao % 20 === 0 && estadoAtual < imagensGato.length - 1) {
                     estadoAtual++;
                     tamanhoGato = imagensGato[estadoAtual].tamanhoInicial;
@@ -117,11 +117,11 @@
         function desenharJogo() {
             ctx.clearRect(0, 0, LARGURA, ALTURA);
 
-            // Desenhar o gato
+           
             const img = imagens[estadoAtual];
             ctx.drawImage(img, gatoX, gatoY, tamanhoGato, tamanhoGato);
 
-            // Desenhar o haltere
+            
             ctx.drawImage(imagemHaltere, haltereX, haltereY, 20, 20);
         }
 
