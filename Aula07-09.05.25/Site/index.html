@@ -31,19 +31,14 @@
         padding: 10px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
+      
     </style>
   </head>
 
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <img
-          src="imagens/Roni FIT1.jfif"
-          alt="Roni Fit - Logo"
-          width="50px"
-          href="#"
-        />
+        <img src="imagens/Roni FIT1.jfif" alt="Roni Fit - Logo" width="50px" />
         <a class="navbar-brand" href="#">Roni FIT</a>
         <button
           class="navbar-toggler"
@@ -72,7 +67,6 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero">
       <div class="container">
         <h1>Bem-vindo à Roni FIT</h1>
@@ -80,7 +74,6 @@
       </div>
     </div>
 
-    <!-- About Section -->
     <section id="about" class="py-5">
       <div class="container">
         <h2 class="text-center mb-4">Sobre Nós</h2>
@@ -94,7 +87,6 @@
       </div>
     </section>
 
-    <!-- Plans Section -->
     <section id="plans" class="py-5 bg-light">
       <div class="container">
         <h2 class="text-center mb-4">Nossos Planos</h2>
@@ -112,10 +104,12 @@
                 <p class="card-text">
                   Ideal para quem busca resultados rápidos e intensos.
                 </p>
-                <li>Uso de todos os espaços.</li>
-                <li>Todas as aulas.</li>
-                <li>Dá o direito ao nosso open bar de Energy Drink.</li>
-                <li>Nossas cadeiras de massagem.</li>
+                <ul>
+                  <li>Uso de todos os espaços.</li>
+                  <li>Todas as aulas.</li>
+                  <li>Dá o direito ao nosso open bar de Energy Drink.</li>
+                  <li>Nossas cadeiras de massagem.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -132,8 +126,10 @@
                 <p class="card-text">
                   O equilíbrio perfeito para o seu progresso.
                 </p>
-                <li>Uso de todos os espaços.</li>
-                <li>Todas as aulas.</li>
+                <ul>
+                  <li>Uso de todos os espaços.</li>
+                  <li>Todas as aulas.</li>
+                </ul>
                 <br />
                 <br />
               </div>
@@ -143,7 +139,7 @@
             <div class="card plan-card">
               <img
                 class="hover"
-                src="imagens/Pano Básico.png"
+                src="imagens/Plano Básico.png"
                 alt="Plano Básico"
               />
               <div class="card-body">
@@ -152,8 +148,10 @@
                 <p class="card-text">
                   Para quem está começando sua jornada fitness.
                 </p>
-                <li>Uso de todos os espaços.</li>
-                <li>Ás aulas de Zumba.</li>
+                <ul>
+                  <li>Uso de todos os espaços.</li>
+                  <li>As aulas de Zumba.</li>
+                </ul>
                 <br />
                 <br />
               </div>
@@ -163,10 +161,9 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-5">
       <div class="container">
-        <h2 class="text-center mb-4">Matrícule-se Agora!</h2>
+        <h2 class="text-center mb-4">Matricule-se Agora!</h2>
         <form>
           <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
@@ -185,7 +182,7 @@
               class="form-control"
               id="cpf"
               placeholder="Seu CPF"
-              pattern="\d{3}\.\d{3}\.\d{3}\-\d{2}\"
+              pattern="\d{3}\.\d{3}\.\d{3}\-\d{2}"
               required
             />
           </div>
@@ -279,14 +276,17 @@
                 type="radio"
                 id="plano3"
                 name="plano"
-                value="Plano3"
+                value="p3"
               />
               <label class="form-check-label" for="plano3">Plano Básico</label>
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="message" class="form-label">Escreva quais são os seus objetivos ao entrar na RoniFit, a melhor academia do mundo!</label>
+            <label for="message" class="form-label"
+              >Escreva quais são os seus objetivos ao entrar na RoniFit, a
+              melhor academia do mundo!</label
+            >
             <textarea
               class="form-control"
               id="message"
@@ -303,7 +303,7 @@
     <footer class="bg-dark text-white text-center py-3">
       <a href="mailto:faleconosco@ronifit.com">faleconosco@ronifit.com</a><br />
       <div class="audio.estilizado">
-        <audio autoplay controls>
+        <audio controls>
           <source src="music/physical.mp3" type="audio/mpeg" />
           Seu navegador não suporta áudio HTML5.
         </audio>
